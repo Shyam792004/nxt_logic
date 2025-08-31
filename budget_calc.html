@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget_Calc</title>
+    
+</head>
+<body>
+        <h3 >Budget_Calculator</h3>
+      
+            <label for="incomeInput">Income:</label>
+            <input type="number" id="incomeInput" placeholder="enter your income">
+            <br>
+            <br>
+            <label for="expenseInput">Expense:</label>
+            <input type="number" id="expenseInput" placeholder="enter your expense">
+            <br>
+            <br>
+            <button onclick="calculateBudget()">Calculate</button>
+        
+
+     <h2 id="result"></h2>
+     <p id="typesInfo"></p>
+
+     <script>
+        function calculateBudget()
+        {
+            let income=Number(document.getElementById("incomeInput").value);
+            let expense=Number(document.getElementById("expenseInput").value);
+            const total=income-expense;
+            document.getElementById("result").innerText="Total Balance = "+total;
+            
+            const typesInfo = 
+                "Type of income: " + typeof income + "\n" +
+                "Type of expenses: " + typeof expense + "\n" +
+                "Type of balance: " + typeof(total);
+
+            document.getElementById("typesInfo").innerText = typesInfo;
+        }
+     </script>
+
+
+</body>
+</html>

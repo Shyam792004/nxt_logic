@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS calc</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 120px;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>JS Function Concepts Demo</h1>
+
+  <input type="number" id="num1" placeholder="Enter number 1" />
+  <input type="number" id="num2" placeholder="Enter number 2" />
+
+  <div>
+    <button onclick="calculator('add')">Add</button>
+    <button onclick="calculator('subtract')">Subtract</button>
+  </div>
+
+  <div id="result">Result: </div>
+
+  <script>
+    // IIFE: Immediately invoked function expression to create private scope
+    const calculator = (function () {
+      // Arrow functions for operations
+      console.log("iife function start run immediately")
+      const add = (a, b) => a + b;
+      const subtract = (a, b) => a - b;
+
+      // Main function that acts as a callback executor
+      const performCalculation = (a, b, callback) => {
+        return callback(a, b);
+      };
+
+      // Return a function (using closure)
+      return function (operationType) {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").textContent = "Please enter valid numbers.";
+          return;
+        }
+
+        let result;
+        if (operationType === 'add') {
+          result = performCalculation(num1, num2, add); // Callback with arrow function
+        } else if (operationType === 'subtract') {
+          result = performCalculation(num1, num2, subtract); // Callback with arrow function
+        }
+
+        document.getElementById("result").textContent = "Result: " + result;
+      };
+    })(); // IIFE ends
+  </script>
+</body>
+</html>

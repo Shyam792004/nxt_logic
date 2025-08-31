@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindrome checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <h2>palindrome checker</h2>
+        <div class="inputdiv">
+                    <input type="text" id="input"placeholder="enter the string">
+        </div>
+        <div>
+            <button type="submit" onClick="palindrome()">check</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        function palindrome() {
+      const str1 = document.getElementById("input").value;
+      const str2 = str1.split("").reverse().join("");  // Correct way to reverse
+
+      
+      let answer = "";
+      if (str1 === str2) {
+        answer = "Palindrome";
+      } else {
+        answer = "Not a palindrome";
+      }
+            const result=document.getElementById("result")
+            result.innerHTML=answer;
+        }
+    </script>
+</body>
+</html>

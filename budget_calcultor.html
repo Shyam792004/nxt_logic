@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budget Calculator</title>
+</head>
+<body>
+
+  <div>
+      <h2>💰 Budget Calculator</h2>
+
+      <label for="incomeInput">Income: </label>
+      <input type="number" id="incomeInput" placeholder="Enter income"><br><br>
+
+      <label>Expenses: </label>
+      <input type="number" id="expensesInput" placeholder="Enter expenses"><br><br>
+
+      <button onclick="calculateBudget()">Calculate</button>
+  </div>
+
+  <h3 id="result"></h3>
+  <p id="typesInfo"></p>
+
+  <script>
+    function calculateBudget() {
+      // Step 1: Get input values from the page
+      let income = document.getElementById("incomeInput").value;
+      let expenses = document.getElementById("expensesInput").value;
+
+      // Step 2: Convert them to numbers (they're strings by default)
+      income = Number(income);
+      expenses = Number(expenses);
+
+      // Step 3: Calculate total balance
+      const totalBalance = income - expenses;
+
+      // Step 4: Show result on screen
+      document.getElementById("result").innerText = "Your Balance: ₹" + totalBalance;
+
+      // Step 5: Show the data types using typeof
+      const typesInfo = 
+        "Type of income: " + typeof income + "\n" +
+        "Type of expenses: " + typeof expenses + "\n" +
+        "Type of balance: " + typeof totalBalance;
+
+      document.getElementById("typesInfo").innerText = typesInfo;
+    }
+  </script>
+</body>
+</html>

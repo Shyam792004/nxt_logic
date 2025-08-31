@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicegame</title>
+     <style>
+    button {
+      margin-top: 20px;
+      background-color: #ffeba7;
+      border-radius: 4px;
+      height: 44px;
+      font-weight: 600;
+      padding: 0 30px;
+      letter-spacing: 1px;
+      /*border: none;*/
+      color: #102770;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+    #result {
+  text-align: center;       /* Center the number */
+  color: blue;
+  font-size: 32px;
+  margin-top: 10%;         /* Add reasonable space below the button */
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+    <div style="
+    background-color:rgb(98, 186, 98);
+    height:400px;
+    width:400px;
+    margin:100px auto;">
+        <div style="
+        text-align:center;
+
+        padding-top:80px">
+            <h1>Roll the dice</h1>
+        </div>
+        <div style="
+        align-items:center;
+        display:flex;
+        justify-content:center;
+        
+        ">            
+
+            <button type="submit" onClick="generate()">dice</button>
+          
+        </div>
+        <div  id="result">
+
+        </div>
+        
+    </div>
+    <script>
+        function generate()
+        {
+            const random=Math.floor(Math.random()*6)+1;
+            const result=document.getElementById("result");
+            result.innerHTML=random;
+        }
+    </script>
+</body>
+</html>
